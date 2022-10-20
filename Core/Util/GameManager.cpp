@@ -238,7 +238,7 @@ ZipFileContents DetectZipFileContents(struct zip *z, ZipFileInfo *info) {
 			} else {
 				INFO_LOG(HLE, "Wrong number of slashes (%i) in '%s'", slashCount, fn);
 			}
-		} else if (endsWith(zippedName, ".iso") || endsWith(zippedName, ".cso")) {
+		} else if (endsWith(zippedName, ".iso") || endsWith(zippedName, ".cso") || endsWith(zippedName, ".img")) {
 			int slashCount = 0;
 			int slashLocation = -1;
 			countSlashes(zippedName, &slashLocation, &slashCount);
@@ -295,7 +295,7 @@ bool GameManager::InstallGame(Path url, Path fileName, bool deleteAfter) {
 
 	std::string extension = url.GetFileExtension();
 	// Examine the URL to guess out what we're installing.
-	if (extension == ".cso" || extension == ".iso") {
+	if (extension == ".cso" || extension == ".iso" || extension == ".img") {
 		// It's a raw ISO or CSO file. We just copy it to the destination.
 		std::string shortFilename = url.GetFilename();
 		return InstallRawISO(fileName, shortFilename, deleteAfter);

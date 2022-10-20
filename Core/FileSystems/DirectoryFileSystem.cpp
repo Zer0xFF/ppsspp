@@ -828,7 +828,7 @@ std::vector<PSPFileInfo> DirectoryFileSystem::GetDirListing(const std::string &p
 		} else {
 			entry.name = file.name;
 		}
-		if (hideISOFiles && (endsWithNoCase(entry.name, ".cso") || endsWithNoCase(entry.name, ".iso"))) {
+		if (hideISOFiles && (endsWithNoCase(entry.name, ".cso") || endsWithNoCase(entry.name, ".iso") || endsWithNoCase(entry.name, ".img"))) {
 			// Workaround for DJ Max Portable, see compat.ini.
 			continue;
 		}

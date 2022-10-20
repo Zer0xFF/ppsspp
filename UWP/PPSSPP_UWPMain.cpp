@@ -445,6 +445,7 @@ void System_SendMessage(const char *command, const char *parameter) {
 		// These are single files that can be loaded directly using StorageFileLoader.
 		picker->FileTypeFilter->Append(".cso");
 		picker->FileTypeFilter->Append(".iso");
+		picker->FileTypeFilter->Append(".img");
 
 		// Can't load these this way currently, they require mounting the underlying folder.
 		picker->FileTypeFilter->Append(".bin");
